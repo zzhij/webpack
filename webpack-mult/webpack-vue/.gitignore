@@ -1,0 +1,11 @@
+production/
+node_modules/
+yo/
+.json
+rev/
+src/.idea/
+release/
+dist/
+.idea/
+.history
+.vscode/
