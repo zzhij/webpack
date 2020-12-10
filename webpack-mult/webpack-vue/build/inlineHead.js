@@ -3,7 +3,7 @@ const path = require('path')
 const Config = require('../config')
 const GlobalSetting = require('./globalSetting')
 //读取meta文件，并进行替换拼装
-let inlineFile = fs.readFileSync(path.resolve(__dirname, '../src/assets/js/lib/meta/meta.js'), 'utf-8')//'../src/assets/js/lib/meta/meta.js'
+let inlineFile = {} // fs.readFileSync(path.resolve(__dirname, '../src/assets/js/lib/meta/meta.js'), 'utf-8')//'../src/assets/js/lib/meta/meta.js'
 inlineFile += GlobalSetting()//拼装全局globalPath
 let metaCode = `<head><script  type="text/javascript">${inlineFile}</script>`
 

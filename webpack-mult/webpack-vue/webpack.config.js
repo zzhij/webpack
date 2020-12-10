@@ -26,13 +26,14 @@ const Utils = require('./build/utils') //工具类
 const isDev = Utils.isDev() //是否开发环境
 
 const entries = Utils.getEntries(`./src/${Config.ENTRY.ENTRY_ROOT}/**/*.html`) //以.html结尾的入口文件
-const apiMocker = require('./mocker/server') //Mocker数据
+// const apiMocker = require('./mocker/server') //Mocker数据
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const imageRoot = Config.ENTRY.ENTRY_ROOT === 'html-v3' ? 'image' : 'images' //兼容简理财图片路径
-
+console.log(entries)
 module.exports = {
-    entry: entries,
+    // entry: entries,
+    entry: './src/view/index/index.js',
     context: resolve(__dirname, './'),
     output: {
         path: resolve(__dirname, Config.BUILD.ASSETS_ROOT),
@@ -227,15 +228,15 @@ module.exports = {
         clientLogLevel: 'warning',
         historyApiFallback: {
             index: '/html/app/index.html'//
-        },
-        before(app) {
+        }
+        /* before(app) {
             apiMocker(app, resolve('./mocker/data.js'), {
                 proxy: {
                     '/repos//*': '',
                 },
                 changeHost: true
             })
-        }
+        } */
     },
     plugins: [
         // 目前采用嵌入到页面的方案
